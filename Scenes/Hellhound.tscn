@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://ebo2bl4km2yo"]
+[gd_scene load_steps=26 format=3 uid="uid://ebo2bl4km2yo"]
 
+[ext_resource type="Script" path="res://Scenes/Hellhound.gd" id="1_8ntdn"]
 [ext_resource type="Texture2D" uid="uid://dn2jo5v0boucx" path="res://Graphics/hell-hound-alert.png" id="1_uk2p0"]
 [ext_resource type="Texture2D" uid="uid://cddb8feofft2n" path="res://Graphics/hell-hound-idle.png" id="2_y1kl8"]
 [ext_resource type="Texture2D" uid="uid://cvqd4d4xaud2c" path="res://Graphics/hell-hound-jump.png" id="3_61i7l"]
@@ -91,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"alert",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,7 +132,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -155,19 +156,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1kog"]
-size = Vector2(26, 12)
+size = Vector2(26, 22)
 
 [node name="Hellhound" type="CharacterBody2D"]
+script = ExtResource("1_8ntdn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animator" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_linj3")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.451865
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_y1kog")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
+zoom = Vector2(1.25, 1.25)

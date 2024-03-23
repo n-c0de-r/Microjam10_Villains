@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7y5bao6lxh7c"]
+
+[ext_resource type="PackedScene" uid="uid://belo05oq5la1r" path="res://Scenes/background.tscn" id="1_faa4n"]
+[ext_resource type="Texture2D" uid="uid://b31t212feu1lp" path="res://Graphics/tileset.png" id="2_algr6"]
+[ext_resource type="PackedScene" uid="uid://ebo2bl4km2yo" path="res://Scenes/Hellhound.tscn" id="3_y7jd4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqkdm"]
+texture = ExtResource("2_algr6")
+0:0/size_in_atlas = Vector2i(3, 5)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -30, 24, -20, 24, 40, -16, 40)
+5:0/size_in_atlas = Vector2i(3, 5)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(26, -35, -24, -20, -24, 40, 16, 40)
+3:0/size_in_atlas = Vector2i(2, 5)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -20, 16, -20, 16, 40, -16, 40)
+
+[sub_resource type="TileSet" id="TileSet_h23q8"]
+tile_size = Vector2i(32, 40)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_iqkdm")
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_faa4n")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_h23q8")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(393216, 1, 0, 393217, 196609, 0, 393218, 196609, 0, 393219, 196609, 0, 393220, 196609, 0, 393221, 196609, 0, 393222, 196609, 0, 393223, 196609, 0, 393224, 196609, 0, 393225, 196609, 0, 393226, 196609, 0, 393227, 196609, 0, 393228, 196609, 0, 393229, 196609, 0, 393230, 196609, 0, 393231, 196609, 0, 393232, 196609, 0, 393233, 196609, 0, 393234, 196609, 0, 393235, 196609, 0, 393236, 196609, 0, 393237, 196609, 0, 393238, 196609, 0, 393239, 196609, 0, 393240, 196609, 0, 393241, 196609, 0, 393242, 196609, 0, 393243, 196609, 0, 393244, 196609, 0, 393245, 196609, 0, 393246, 196609, 0, 393247, 196609, 0, 393248, 196609, 0, 393249, 196609, 0, 393250, 196609, 0, 393251, 196609, 0, 393252, 196609, 0, 393253, 196609, 0, 393254, 196609, 0, 393255, 196609, 0, 393256, 196609, 0, 393257, 196609, 0, 393258, 196609, 0, 393259, 196609, 0, 393260, 196609, 0, 393261, 196609, 0, 393262, 196609, 0, 393263, 196609, 0, 393264, 196609, 0, 393265, 196609, 0, 393266, 196609, 0, 393267, 196609, 0, 393268, 196609, 0, 393269, 196609, 0, 393270, 196609, 0, 393271, 196609, 0, 393272, 196609, 0, 393273, 196609, 0, 393274, 196609, 0, 393275, 196609, 0, 393276, 196609, 0, 393277, 196609, 0, 393278, 196609, 0, 393279, 196609, 0, 393280, 196609, 0, 393281, 196609, 0, 393282, 196609, 0, 393283, 196609, 0, 393284, 196609, 0, 393285, 196609, 0, 393286, 196609, 0, 393287, 196609, 0, 393288, 196609, 0, 393289, 196609, 0, 393290, 196609, 0, 393291, 196609, 0)
+
+[node name="Hellhound" parent="." instance=ExtResource("3_y7jd4")]
+z_index = 1
+position = Vector2(216, 215)
