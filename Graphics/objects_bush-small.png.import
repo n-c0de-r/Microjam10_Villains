@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddb8feofft2n"
-path="res://.godot/imported/hell-hound-idle.png-d5074d34b3ea42a331320a3a94a55329.ctex"
+uid="uid://btjsp5bv4xjwy"
+path="res://.godot/imported/objects_bush-small.png-4c2aaac72180123b08292c67a213180f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/hell-hound-idle.png"
-dest_files=["res://.godot/imported/hell-hound-idle.png-d5074d34b3ea42a331320a3a94a55329.ctex"]
+source_file="res://Graphics/objects_bush-small.png"
+dest_files=["res://.godot/imported/objects_bush-small.png-4c2aaac72180123b08292c67a213180f.ctex"]
 
 [params]
 

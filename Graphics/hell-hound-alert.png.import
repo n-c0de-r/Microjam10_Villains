@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddb8feofft2n"
-path="res://.godot/imported/hell-hound-idle.png-d5074d34b3ea42a331320a3a94a55329.ctex"
+uid="uid://dn2jo5v0boucx"
+path="res://.godot/imported/hell-hound-alert.png-560177dcfd6a17e2189fcbfb5c1763c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/hell-hound-idle.png"
-dest_files=["res://.godot/imported/hell-hound-idle.png-d5074d34b3ea42a331320a3a94a55329.ctex"]
+source_file="res://Graphics/hell-hound-alert.png"
+dest_files=["res://.godot/imported/hell-hound-alert.png-560177dcfd6a17e2189fcbfb5c1763c6.ctex"]
 
 [params]
 

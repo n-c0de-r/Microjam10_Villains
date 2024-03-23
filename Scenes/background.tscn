@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://belo05oq5la1r"]
+[gd_scene load_steps=14 format=3 uid="uid://belo05oq5la1r"]
 
 [ext_resource type="Texture2D" uid="uid://bijtaonns43fr" path="res://Graphics/background.png" id="1_vidxy"]
 [ext_resource type="Texture2D" uid="uid://bfk1e6eksnyc7" path="res://Graphics/parallax_middle.png" id="2_s5bhr"]
 [ext_resource type="Texture2D" uid="uid://boo1rymm8ue03" path="res://Graphics/parallax_near.png" id="3_3g71o"]
-[ext_resource type="Texture2D" uid="uid://biokxb0qhdguj" path="res://Graphics/parallax_objects.png" id="4_0mydr"]
+[ext_resource type="Texture2D" uid="uid://bxy6a2k8usowt" path="res://Graphics/objects_tree-1.png" id="4_3lrnr"]
+[ext_resource type="Texture2D" uid="uid://dscmtifpupyg5" path="res://Graphics/objects_tree-2.png" id="5_ha6ng"]
+[ext_resource type="Texture2D" uid="uid://ny6gjp8o14a3" path="res://Graphics/objects_tree-3.png" id="6_n0yxr"]
+[ext_resource type="Texture2D" uid="uid://b0xg8t0mdge1s" path="res://Graphics/objects_bush-large.png" id="7_025vt"]
+[ext_resource type="Texture2D" uid="uid://btjsp5bv4xjwy" path="res://Graphics/objects_bush-small.png" id="8_7uqtq"]
+[ext_resource type="Texture2D" uid="uid://qjob6luq2170" path="res://Graphics/objects_statue.png" id="9_38i0i"]
+[ext_resource type="Texture2D" uid="uid://xka6xqglm3px" path="res://Graphics/objects_stone-1.png" id="10_ay1vw"]
+[ext_resource type="Texture2D" uid="uid://chkxow6t3rk8i" path="res://Graphics/objects_stone-2.png" id="11_2xs8b"]
+[ext_resource type="Texture2D" uid="uid://bwti5i7umbn5i" path="res://Graphics/objects_stone-3.png" id="12_w0qut"]
+[ext_resource type="Texture2D" uid="uid://cauey7xewegg5" path="res://Graphics/objects_stone-4.png" id="13_hc000"]
 
 [node name="Background" type="ParallaxBackground"]
 
@@ -17,31 +26,82 @@ texture_repeat = 2
 scale = Vector2(1.0625, 1.07589)
 texture = ExtResource("1_vidxy")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Middle" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(336, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Middle"]
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(0.752941, 0.341176, 0.65098, 1)
 texture = ExtResource("2_s5bhr")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Near" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(512, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Near"]
-modulate = Color(0.776471, 0.501961, 0.776471, 1)
+modulate = Color(0.776471, 0.337255, 0.776471, 1)
 texture = ExtResource("3_3g71o")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Front" type="ParallaxLayer" parent="."]
+visible = false
 z_index = 20
 motion_scale = Vector2(1.2, 1)
 motion_mirroring = Vector2(992, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Front"]
-position = Vector2(1, 70)
-texture = ExtResource("4_0mydr")
+[node name="SmallTree" type="Sprite2D" parent="Front"]
+position = Vector2(560, 128)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_3lrnr")
+centered = false
+
+[node name="SmallTree2" type="Sprite2D" parent="Front"]
+position = Vector2(144, 128)
+texture = ExtResource("5_ha6ng")
+centered = false
+
+[node name="BigTree" type="Sprite2D" parent="Front"]
+position = Vector2(560, 72)
+texture = ExtResource("6_n0yxr")
+centered = false
+
+[node name="BigBush" type="Sprite2D" parent="Front"]
+position = Vector2(520, 184)
+texture = ExtResource("7_025vt")
+centered = false
+
+[node name="Bush" type="Sprite2D" parent="Front"]
+position = Vector2(104, 216)
+texture = ExtResource("8_7uqtq")
+centered = false
+
+[node name="Statue" type="Sprite2D" parent="Front"]
+position = Vector2(336, 176)
+texture = ExtResource("9_38i0i")
+centered = false
+
+[node name="Tomb1" type="Sprite2D" parent="Front"]
+position = Vector2(24, 208)
+texture = ExtResource("10_ay1vw")
+centered = false
+
+[node name="Cross" type="Sprite2D" parent="Front"]
+position = Vector2(704, 208)
+texture = ExtResource("11_2xs8b")
+centered = false
+
+[node name="Tomb2" type="Sprite2D" parent="Front"]
+position = Vector2(304, 216)
+texture = ExtResource("12_w0qut")
+centered = false
+
+[node name="Stone" type="Sprite2D" parent="Front"]
+position = Vector2(800, 208)
+texture = ExtResource("13_hc000")
 centered = false
