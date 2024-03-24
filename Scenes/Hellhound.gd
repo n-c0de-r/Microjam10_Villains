@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var animator: AnimatedSprite2D
+
 signal healthChanged(amount: int)
 
 const START_SPEED: float = 30.0
@@ -28,9 +30,14 @@ func _physics_process(delta):
 		if is_on_floor():
 			if(Input.is_action_just_pressed("jump")):
 				velocity.y = Globals.JUMP_SPEED
-				$Animator.play("jump")
+				animator.play("jump")
 			else:
-				$Animator.play("run")
+				animator.play("run")
+		
+		if blood <= 0:
+			Globals.is_running = false
+			animator.play("die")
+			
 	move_and_slide()
 
 
@@ -39,9 +46,12 @@ func update_health(amount: int) -> void:
 
 
 func _on_keeper_animation_finished():
-	$Animator.play("alert")
+	animator.play("alert")
 
 
 func _on_animator_animation_finished():
-	if not Globals.is_running:
+	if animator.animation == "die":
+		get_tree().reload_current_scene()
+		
+	if (animator.animation == "alert") and (not Globals.is_running):
 		Globals.is_running = true

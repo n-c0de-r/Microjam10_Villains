@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7y5bao6lxh7c"]
+[gd_scene load_steps=9 format=3 uid="uid://c7y5bao6lxh7c"]
 
 [ext_resource type="PackedScene" uid="uid://belo05oq5la1r" path="res://Scenes/background.tscn" id="1_faa4n"]
 [ext_resource type="Texture2D" uid="uid://b31t212feu1lp" path="res://Graphics/tileset.png" id="2_algr6"]
@@ -29,6 +29,9 @@ tile_size = Vector2i(32, 40)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_iqkdm")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odsav"]
+size = Vector2(2630, 20)
+
 [node name="Level" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_faa4n")]
@@ -38,6 +41,12 @@ tile_set = SubResource("TileSet_h23q8")
 rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(393216, 196609, 0, 393217, 196609, 0, 393218, 196609, 0, 393219, 196609, 0, 393220, 196609, 0, 393221, 196609, 0, 393222, 196609, 0, 393223, 196609, 0, 393224, 196609, 0, 393225, 196609, 0, 393226, 196609, 0, 393227, 196609, 0, 393228, 196609, 0, 393229, 196609, 0, 393230, 196609, 0, 393231, 196609, 0, 393232, 196609, 0, 393233, 196609, 0, 393234, 196609, 0, 393235, 196609, 0, 393236, 196609, 0, 393237, 196609, 0, 393238, 196609, 0, 393239, 196609, 0, 393240, 196609, 0, 393241, 196609, 0, 393242, 196609, 0, 393243, 196609, 0, 393244, 196609, 0, 393245, 196609, 0, 393246, 196609, 0, 393247, 196609, 0, 393248, 196609, 0, 393249, 196609, 0, 393250, 196609, 0, 393256, 196609, 0, 393257, 196609, 0, 393258, 196609, 0, 393259, 196609, 0, 393260, 196609, 0, 393261, 196609, 0, 393262, 196609, 0, 393263, 196609, 0, 393264, 196609, 0, 393265, 196609, 0, 393266, 196609, 0, 393267, 196609, 0, 393268, 196609, 0, 393269, 196609, 0, 393270, 196609, 0, 393271, 196609, 0, 393272, 196609, 0, 393273, 196609, 0, 393274, 196609, 0, 393275, 196609, 0, 393276, 196609, 0, 458751, 196609, 0, 393255, 196609, 0, 393254, 196609, 0, 393253, 196609, 0, 393252, 196609, 0, 393251, 196609, 0)
+
+[node name="Area2D" type="Area2D" parent="TileMap"]
+
+[node name="DeathArea" type="CollisionShape2D" parent="TileMap/Area2D"]
+position = Vector2(2115, 291)
+shape = SubResource("RectangleShape2D_odsav")
 
 [node name="Keeper" parent="." instance=ExtResource("3_5d8hv")]
 position = Vector2(74, 202)
