@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+signal healthChanged(amount: int)
+
 const START_SPEED: float = 30.0
-const MAX_BLOOD: int = 100
+
 const MAX_SPEED: int = 100
 const MAX_VELOCITY: int = 200
 
@@ -10,7 +12,7 @@ var speed: float
 
 
 func _init():
-	blood = MAX_BLOOD
+	blood = Globals.MAX_BLOOD
 	speed = START_SPEED
 
 
@@ -30,6 +32,10 @@ func _physics_process(delta):
 			else:
 				$Animator.play("run")
 	move_and_slide()
+
+
+func update_health(amount: int) -> void:
+	blood += amount
 
 
 func _on_keeper_animation_finished():

@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://belo05oq5la1r"]
+[gd_scene load_steps=17 format=3 uid="uid://belo05oq5la1r"]
 
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_miwj1"]
 [ext_resource type="Texture2D" uid="uid://bijtaonns43fr" path="res://Graphics/background.png" id="1_vidxy"]
 [ext_resource type="Texture2D" uid="uid://bfk1e6eksnyc7" path="res://Graphics/parallax_middle.png" id="2_s5bhr"]
 [ext_resource type="Texture2D" uid="uid://boo1rymm8ue03" path="res://Graphics/parallax_near.png" id="3_3g71o"]
@@ -13,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://chkxow6t3rk8i" path="res://Graphics/objects_stone-2.png" id="11_2xs8b"]
 [ext_resource type="Texture2D" uid="uid://bwti5i7umbn5i" path="res://Graphics/objects_stone-3.png" id="12_w0qut"]
 [ext_resource type="Texture2D" uid="uid://cauey7xewegg5" path="res://Graphics/objects_stone-4.png" id="13_hc000"]
+[ext_resource type="Texture2D" uid="uid://bfyqvpf5ecx6k" path="res://Graphics/ui-under.png" id="15_4o8g1"]
+[ext_resource type="Texture2D" uid="uid://bkgs4ogmwv8uu" path="res://Graphics/ui-progress.png" id="16_iskvp"]
 
 [node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_miwj1")
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 1)
@@ -105,3 +109,12 @@ centered = false
 position = Vector2(912, 184)
 texture = ExtResource("13_hc000")
 centered = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 20.0
+texture_under = ExtResource("15_4o8g1")
+texture_progress = ExtResource("16_iskvp")

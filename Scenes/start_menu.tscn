@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cni32xu12ivkd"]
+[gd_scene load_steps=6 format=3 uid="uid://cni32xu12ivkd"]
 
 [ext_resource type="Script" path="res://Scenes/start_menu.gd" id="1_i5uad"]
+[ext_resource type="Texture2D" uid="uid://bh6rue53wjsu7" path="res://Graphics/button-normal.png" id="2_1tgh6"]
+[ext_resource type="Texture2D" uid="uid://dbe0ocs7obvc6" path="res://Graphics/button-down.png" id="3_sb7gk"]
+[ext_resource type="Texture2D" uid="uid://clulqi0yhm52o" path="res://Graphics/button-hover.png" id="4_oog6o"]
+[ext_resource type="FontFile" uid="uid://c66n1jr7faj1i" path="res://antiquity-print.ttf" id="5_j6jjc"]
 
 [node name="StartMenu" type="Control"]
 z_index = 5
@@ -10,9 +14,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
+offset_left = -86.0
 offset_top = -60.0
-offset_right = 90.0
+offset_right = 86.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -28,15 +32,55 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "START"
+texture_normal = ExtResource("2_1tgh6")
+texture_pressed = ExtResource("3_sb7gk")
+texture_hover = ExtResource("4_oog6o")
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="Label" type="Label" parent="VBoxContainer/Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.847059, 0.545098, 0.00784314, 0.917647)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_j6jjc")
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "QUIT"
+texture_normal = ExtResource("2_1tgh6")
+texture_pressed = ExtResource("3_sb7gk")
+texture_hover = ExtResource("4_oog6o")
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.847059, 0.545098, 0.00784314, 0.917647)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_j6jjc")
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://da27uefry3nq0"]
+
+[ext_resource type="Texture2D" uid="uid://bfyqvpf5ecx6k" path="res://Graphics/ui-under.png" id="1_yriml"]
+[ext_resource type="Texture2D" uid="uid://bkgs4ogmwv8uu" path="res://Graphics/ui-progress.png" id="2_4hpuu"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+offset_right = 76.0
+offset_bottom = 10.0
+texture_under = ExtResource("1_yriml")
+texture_progress = ExtResource("2_4hpuu")
