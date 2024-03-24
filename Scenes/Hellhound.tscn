@@ -223,10 +223,8 @@ animator = NodePath("Animator")
 [node name="Animator" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_linj3")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 

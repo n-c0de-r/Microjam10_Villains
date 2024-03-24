@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://belo05oq5la1r"]
+[gd_scene load_steps=18 format=3 uid="uid://belo05oq5la1r"]
 
 [ext_resource type="Script" path="res://Scenes/hud.gd" id="1_miwj1"]
 [ext_resource type="Texture2D" uid="uid://bijtaonns43fr" path="res://Graphics/background.png" id="1_vidxy"]
@@ -16,9 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://cauey7xewegg5" path="res://Graphics/objects_stone-4.png" id="13_hc000"]
 [ext_resource type="Texture2D" uid="uid://bfyqvpf5ecx6k" path="res://Graphics/ui-under.png" id="15_4o8g1"]
 [ext_resource type="Texture2D" uid="uid://bkgs4ogmwv8uu" path="res://Graphics/ui-progress.png" id="16_iskvp"]
+[ext_resource type="FontFile" uid="uid://c66n1jr7faj1i" path="res://Misc/antiquity-print.ttf" id="17_yqll3"]
 
-[node name="Background" type="ParallaxBackground"]
+[node name="Background" type="ParallaxBackground" node_paths=PackedStringArray("_ui", "_healthBar", "_score")]
 script = ExtResource("1_miwj1")
+_ui = NodePath("Control")
+_healthBar = NodePath("Control/HealthBar")
+_score = NodePath("Control/HBoxContainer/Score")
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 1)
@@ -110,11 +114,61 @@ position = Vector2(912, 184)
 texture = ExtResource("13_hc000")
 centered = false
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="Control" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 86.0
 offset_bottom = 20.0
 texture_under = ExtResource("15_4o8g1")
 texture_progress = ExtResource("16_iskvp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Text" type="Label" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.847059, 0.545098, 0.00784314, 0.917647)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("17_yqll3")
+theme_override_font_sizes/font_size = 12
+text = "Score: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.847059, 0.545098, 0.00784314, 0.917647)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("17_yqll3")
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

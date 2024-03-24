@@ -6,26 +6,28 @@ signal healthChanged(amount: int)
 
 const START_SPEED: float = 30.0
 
+const MAX_BLOOD: int = 100
 const MAX_SPEED: int = 100
 const MAX_VELOCITY: int = 200
 
-var blood: int = 100
-var speed: float
+var _speed: float
+var _blood: int = 100
+var _distance: int = 0
 
 
-func _init():
-	blood = Globals.MAX_BLOOD
-	speed = START_SPEED
+func _ready():
+	_blood = MAX_BLOOD
+	_speed = START_SPEED
 
 
 func _physics_process(delta):
 	velocity.y += Globals.GRAVITY * delta
 	
 	if Globals.is_running:
-		velocity.x += delta * speed
+		velocity.x += delta * _speed
 		velocity.x = min(velocity.x, MAX_VELOCITY)
-		speed += delta * 10
-		speed = min(speed, MAX_SPEED)
+		_speed += delta * 10
+		_speed = min(_speed, MAX_SPEED)
 		
 		if is_on_floor():
 			if(Input.is_action_just_pressed("jump")):
@@ -34,15 +36,21 @@ func _physics_process(delta):
 			else:
 				animator.play("run")
 		
-		if blood <= 0:
+		if _blood <= 0:
 			Globals.is_running = false
 			animator.play("die")
+		elif (int(position.x) % Globals._screen_size.x) < 5:
+			update_health(-1)
 			
 	move_and_slide()
+	
+	_distance = int(position.x / 10)
 
 
 func update_health(amount: int) -> void:
-	blood += amount
+	_blood += amount
+	_blood = min(_blood, MAX_BLOOD)
+	healthChanged.emit(amount)
 
 
 func _on_keeper_animation_finished():

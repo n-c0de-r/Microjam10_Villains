@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh6rue53wjsu7" path="res://Graphics/button-normal.png" id="2_1tgh6"]
 [ext_resource type="Texture2D" uid="uid://dbe0ocs7obvc6" path="res://Graphics/button-down.png" id="3_sb7gk"]
 [ext_resource type="Texture2D" uid="uid://clulqi0yhm52o" path="res://Graphics/button-hover.png" id="4_oog6o"]
-[ext_resource type="FontFile" uid="uid://c66n1jr7faj1i" path="res://antiquity-print.ttf" id="5_j6jjc"]
+[ext_resource type="FontFile" uid="uid://c66n1jr7faj1i" path="res://Misc/antiquity-print.ttf" id="5_0epl1"]
 
 [node name="StartMenu" type="Control"]
 z_index = 5
@@ -52,7 +52,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("5_j6jjc")
+theme_override_fonts/font = ExtResource("5_0epl1")
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,7 +77,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("5_j6jjc")
+theme_override_fonts/font = ExtResource("5_0epl1")
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
