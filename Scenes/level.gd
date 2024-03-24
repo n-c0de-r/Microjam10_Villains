@@ -12,6 +12,7 @@ var _tile_count: int = 0
 const CELL_NUMBER: int = 16
 const CELL_LOCATION: Vector2i = Vector2i(1,0)
 
+# TODO: remove magic numbers
 
 func _ready():
 	Globals._screen_size = get_viewport_rect().size
@@ -39,7 +40,8 @@ func _spawn_prey(prey: PackedScene):
 		var inst: CharacterBody2D = prey.instantiate()
 		inst.position = Vector2i(_player.position.x + Globals._screen_size.x, 210)
 		_prey_container.add_child(inst)
-		_cooldown = randi_range(2, 5)
+		_cooldown = randi_range(4, 7)
+
 
 func _on_hellhound_health_changed(amount):
 	_ui.update_health(amount)

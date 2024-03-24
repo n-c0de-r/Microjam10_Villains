@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bxolcqeffcyin" path="res://Graphics/blood-splash2.png" id="7_hq120"]
 [ext_resource type="Texture2D" uid="uid://cb72wb24pre0a" path="res://Graphics/blood-splash3.png" id="8_mft5v"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adgqd"]
+height = 36.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnf5q"]
 atlas = ExtResource("1_smfmq")
 region = Rect2(0, 0, 34, 42)
@@ -761,18 +764,20 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adgqd"]
-height = 36.0
-
 [node name="Human" type="CharacterBody2D" node_paths=PackedStringArray("animator")]
 script = ExtResource("5_1u5bt")
 animator = NodePath("Animator")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_adgqd")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ig67g")
 animation = &"human1"
 autoplay = "human2"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_adgqd")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

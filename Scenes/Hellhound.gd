@@ -53,6 +53,11 @@ func update_health(amount: int) -> void:
 	healthChanged.emit(amount)
 
 
+func slowdown(amount: int):
+	_speed = amount
+	velocity.x -= amount
+
+
 func _on_keeper_animation_finished():
 	animator.play("alert")
 
