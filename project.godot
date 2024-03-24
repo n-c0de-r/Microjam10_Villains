@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Hounded"
+config/name="Hell Hunt"
+config/description="Hell guarding dog, Cerberus, had a new pup... It needs training now.
+Hunt down roaming souls in the underworld and avoid pesky heroes."
+config/version="0.2"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://Graphics/icon.svg"
+config/icon="res://Graphics/icon.png"
 
 [autoload]
 

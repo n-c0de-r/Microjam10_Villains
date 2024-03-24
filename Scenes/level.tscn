@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7y5bao6lxh7c"]
+[gd_scene load_steps=8 format=3 uid="uid://c7y5bao6lxh7c"]
 
 [ext_resource type="PackedScene" uid="uid://belo05oq5la1r" path="res://Scenes/background.tscn" id="1_faa4n"]
 [ext_resource type="Texture2D" uid="uid://b31t212feu1lp" path="res://Graphics/tileset.png" id="2_algr6"]
-[ext_resource type="PackedScene" uid="uid://ebo2bl4km2yo" path="res://Scenes/Hellhound.tscn" id="3_y7jd4"]
+[ext_resource type="PackedScene" uid="uid://bld8sh1x8k0ok" path="res://Scenes/keeper.tscn" id="3_5d8hv"]
+[ext_resource type="PackedScene" uid="uid://ebo2bl4km2yo" path="res://Scenes/hellhound.tscn" id="3_y7jd4"]
+[ext_resource type="PackedScene" uid="uid://cni32xu12ivkd" path="res://Scenes/start_menu.tscn" id="5_38e4v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqkdm"]
 texture = ExtResource("2_algr6")
@@ -37,6 +39,18 @@ rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(393216, 1, 0, 393217, 196609, 0, 393218, 196609, 0, 393219, 196609, 0, 393220, 196609, 0, 393221, 196609, 0, 393222, 196609, 0, 393223, 196609, 0, 393224, 196609, 0, 393225, 196609, 0, 393226, 196609, 0, 393227, 196609, 0, 393228, 196609, 0, 393229, 196609, 0, 393230, 196609, 0, 393231, 196609, 0, 393232, 196609, 0, 393233, 196609, 0, 393234, 196609, 0, 393235, 196609, 0, 393236, 196609, 0, 393237, 196609, 0, 393238, 196609, 0, 393239, 196609, 0, 393240, 196609, 0, 393241, 196609, 0, 393242, 196609, 0, 393243, 196609, 0, 393244, 196609, 0, 393245, 196609, 0, 393246, 196609, 0, 393247, 196609, 0, 393248, 196609, 0, 393249, 196609, 0, 393250, 196609, 0, 393251, 196609, 0, 393252, 196609, 0, 393253, 196609, 0, 393254, 196609, 0, 393255, 196609, 0, 393256, 196609, 0, 393257, 196609, 0, 393258, 196609, 0, 393259, 196609, 0, 393260, 196609, 0, 393261, 196609, 0, 393262, 196609, 0, 393263, 196609, 0, 393264, 196609, 0, 393265, 196609, 0, 393266, 196609, 0, 393267, 196609, 0, 393268, 196609, 0, 393269, 196609, 0, 393270, 196609, 0, 393271, 196609, 0, 393272, 196609, 0, 393273, 196609, 0, 393274, 196609, 0, 393275, 196609, 0, 393276, 196609, 0, 393277, 196609, 0, 393278, 196609, 0, 393279, 196609, 0, 393280, 196609, 0, 393281, 196609, 0, 393282, 196609, 0, 393283, 196609, 0, 393284, 196609, 0, 393285, 196609, 0, 393286, 196609, 0, 393287, 196609, 0, 393288, 196609, 0, 393289, 196609, 0, 393290, 196609, 0, 393291, 196609, 0)
 
+[node name="Keeper" parent="." instance=ExtResource("3_5d8hv")]
+position = Vector2(74, 202)
+
 [node name="Hellhound" parent="." instance=ExtResource("3_y7jd4")]
 z_index = 1
-position = Vector2(216, 215)
+position = Vector2(98, 226)
+
+[node name="StartMenu" parent="." instance=ExtResource("5_38e4v")]
+offset_left = 90.0
+offset_top = 80.0
+offset_right = 270.0
+offset_bottom = 200.0
+
+[connection signal="animation_finished" from="Keeper" to="Hellhound" method="_on_keeper_animation_finished"]
+[connection signal="started" from="StartMenu" to="Keeper" method="_on_start_menu_started"]

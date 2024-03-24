@@ -23,6 +23,7 @@ motion_mirroring = Vector2(512, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
 texture_filter = 1
 texture_repeat = 2
+position = Vector2(0, -56)
 scale = Vector2(1.33333, 1.07589)
 texture = ExtResource("1_vidxy")
 centered = false
@@ -43,6 +44,7 @@ motion_mirroring = Vector2(512, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Near"]
 modulate = Color(0.776471, 0.337255, 0.776471, 1)
+position = Vector2(0, -8)
 texture = ExtResource("3_3g71o")
 centered = false
 
